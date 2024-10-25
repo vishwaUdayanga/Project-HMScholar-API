@@ -36,7 +36,7 @@ class Course(Base):
     course_name=Column(String,index=True)
     enrollment_key=Column(String,index=True)
     course_description=Column(String,index=True)
-    course_image=Column(String,index=True)
+    course_image=Column(String,index=True, default=None)
     # semester_id=Column(UUID, ForeignKey("semester.semester_id"),index=True) ##Changed
 
 class Program(Base):
