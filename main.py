@@ -1171,7 +1171,10 @@ def edit_lecturer(lecturer_id: UUID, new_lecturer: LecturerEditResponse, db: Ses
     lecturer.lecturer_nic = new_lecturer.lecturer_nic
     lecturer.lecturer_phone = new_lecturer.lecturer_phone
     lecturer.lecturer_email = new_lecturer.lecturer_email
-    lecturer.lecturer_password = new_lecturer.lecturer_password
+
+    hash_password = utils.get_password_hash(new_lecturer.lecturer_password)
+
+    lecturer.lecturer_password = hash_password
     db.commit()
     db.refresh(lecturer)
 

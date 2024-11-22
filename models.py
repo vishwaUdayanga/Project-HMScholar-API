@@ -152,7 +152,7 @@ class Quiz(Base):
     quiz_password=Column(String,index=True)
     quiz_no_of_questions=Column(Integer,index=True)
     section_id=Column(UUID, ForeignKey("section.section_id", ondelete="CASCADE"),index=True)
-    is_enabled = Column(Boolean,index=True,default=False)
+    is_enabled = Column(Boolean,index=True,default=True)
     attempts= Column(Integer,index=True,default = 1)
 
 class Question(Base):
