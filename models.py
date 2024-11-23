@@ -36,7 +36,7 @@ class Course(Base):
     course_name=Column(String,index=True)
     enrollment_key=Column(String,index=True)
     course_description=Column(String,index=True)
-    course_image=Column(String,index=True)
+    course_image=Column(String,index=True, default=None)
     # semester_id=Column(UUID, ForeignKey("semester.semester_id"),index=True) ##Changed
 
 class Program(Base):
@@ -152,7 +152,7 @@ class Quiz(Base):
     quiz_password=Column(String,index=True)
     quiz_no_of_questions=Column(Integer,index=True)
     section_id=Column(UUID, ForeignKey("section.section_id", ondelete="CASCADE"),index=True)
-    is_enabled = Column(Boolean,index=True,default=False)
+    is_enabled = Column(Boolean,index=True,default=True)
     attempts= Column(Integer,index=True,default = 1)
 
 class Question(Base):
